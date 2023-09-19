@@ -26,11 +26,11 @@ if (!MODEL_NAME) {
 
 // init global variables
 const MAX_LENGTH = 399
-let file_context = "You are Jarvis from Iron Man."
+let file_context = "You are a helpful Twitch Chatbot."
 let last_user_message = ""
 
 const messages = [
-    {role: "system", content: "You are Jarvis from Iron Man."}
+    {role: "system", content: "You are a helpful Twitch Chatbot."}
 ];
 
 console.log("GPT_MODE is " + GPT_MODE)
