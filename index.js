@@ -29,9 +29,7 @@ const MAX_LENGTH = 499
 let file_context = "You are a helpful Twitch Chatbot."
 let last_user_message = ""
 
-const messages = [
-    {role: "system", content: "You are a helpful Twitch Chatbot."}
-];
+const messages = [];
 
 console.log("GPT_MODE is " + GPT_MODE)
 console.log("History length is " + HISTORY_LENGTH)
@@ -73,7 +71,7 @@ app.get('/gpt/:text', async (req, res) => {
         fs.readFile("./file_context.txt", 'utf8', function(err, data) {
             if (err) throw err;
             console.log("Reading context file and adding it as system level message for the agent.")
-            messages[0].content = data;
+            messages.push({role: "system", content: data})
         });
         
         console.log("Messages: ")
