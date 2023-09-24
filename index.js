@@ -47,8 +47,9 @@ if (process.env.GPT_MODE === "CHAT"){
 
     fs.readFile("./file_context.txt", 'utf8', function(err, data) {
         if (err) throw err;
-        console.log("Reading context file and adding it as system level message for the agent.")   
-        file_context = data;
+        console.log("Reading context file and adding it as system level message for the agent.")
+        //messages[0].content = data;
+        messages.push({role: "system", content: data})
     });
 
 } else {
@@ -86,8 +87,6 @@ app.get('/gpt/:text', async (req, res) => {
             console.log('Message amount in history exceeded. Removing oldest user and agent messages.')
             messages.splice(1,2)
         }
-        
-        messages.push({role: "system", content: file_context})
         
         console.log("Messages: ")
         console.dir(messages)
