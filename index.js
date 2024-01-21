@@ -119,6 +119,7 @@ app.get('/gpt/:text', async (req, res) => {
             } else {
                 sliced_agent_response = agent_response
             }
+            sliced_agent_response = sliced_agent_response.replace("bluedodge", "")
             res.send(sliced_agent_response)
         } else {
             res.send("Something went wrong. Try again later!")
@@ -153,6 +154,7 @@ app.get('/gpt/:text', async (req, res) => {
             } else {
                 sliced_agent_response = agent_response
             }
+            sliced_agent_response = sliced_agent_response.replace("bluedodge", "")
             res.send(sliced_agent_response)
         } else {
             res.send("Something went wrong. Try again later!")
